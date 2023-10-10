@@ -1,68 +1,58 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const navbarToggler = document.getElementById('navbarToggler');
-  const navbarRight = document.querySelector('.navbar-right');
+let studentDataArray = [];
 
-  navbarToggler.addEventListener('click', function () {
-    navbarRight.classList.toggle('show');
-  });
+sub.addEventListener("click", (e) => {
+  e.preventDefault();
 
-  
-  function Student(fullName, dob, gender, major, phoneNumber, imageUrl) {
-    this.fullName = fullName;
-    this.dob = dob;
-    this.gender = gender;
-    this.major = major;
-    this.phoneNumber = phoneNumber;
-    this.imageUrl = imageUrl;
-  }
+  let fullName, dob, gender, phone, grade;
 
-  const studentForm = document.getElementById('studentForm');
-  const mainContainer = document.getElementById('mainContainer');
+  fullName = document.getElementById("fullname").value;
+  dob = document.getElementById("date_of_birth").value;
+  phone = document.getElementById("phone_number").value;
+  grade = document.getElementById("grade").value;
+  gender = document.getElementById("gender").value;
 
-  
-  let students = JSON.parse(localStorage.getItem('students')) || [];
+  let newRow = document.createElement("tr");
 
-  
-  function renderStudentInMain(student) {
-    const card = document.createElement('div');
-    card.classList.add('student-card');
+  let td1 = document.createElement("td");
+  td1.innerHTML = fullName;
+  newRow.appendChild(td1);
 
-    card.innerHTML = `
-        <img src="${student.imageUrl}" alt="${student.fullName}">
-        <div class="card-content">
-            <h3>${student.fullName}</h3>
-            <p>Date of Birth: ${student.dob}</p>
-            <p>Gender: ${student.gender}</p>
-            <p>Major: ${student.major}</p>
-            <p>Phone Number: ${student.phoneNumber}</p>
-        </div>
-    `;
+  let td2 = document.createElement("td");
+  td2.innerHTML = dob;
+  newRow.appendChild(td2);
 
-    mainContainer.appendChild(card);
-  }
+  let td3 = document.createElement("td");
+  td3.innerHTML = gender;
+  newRow.appendChild(td3);
 
-  
-  function saveStudentsToLocal() {
-    localStorage.setItem('students', JSON.stringify(students));
-  }
+  let td4 = document.createElement("td");
+  td4.innerHTML = phone;
+  newRow.appendChild(td4);
 
-  studentForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    
-    const fullName = document.getElementById('fullName').value;
-    const dob = document.getElementById('dob').value;
-    const gender = document.getElementById('gender').value;
-    const major = document.getElementById('major').value;
-    const phoneNumber = document.getElementById('phoneNumber').value;
-    const imageUrl = document.getElementById('imageUrl').value;
+  let td5 = document.createElement("td");
+  td5.innerHTML = grade;
+  newRow.appendChild(td5);
 
-    const newStudent = new Student(fullName, dob, gender, major, phoneNumber, imageUrl);
-    students.push(newStudent);
-    renderStudentInMain(newStudent);
-    saveStudentsToLocal();
-    studentForm.reset();
-  });
+  document.querySelector("#tables").appendChild(newRow);
 
-  
-  students.forEach(renderStudentInMain);
+  let studentData = {
+    fullName: fullName,
+    dob: dob,
+    gender: gender,
+    phone: phone,
+    grade: grade,
+  };
+
+  studentDataArray.push(studentData);
+
+  localStorage.setItem("studentData", JSON.stringify(studentDataArray));
 });
+let storedStudentData = localStorage.getItem("studentData");
+
+if (storedStudentData) {
+  let studentDataArray = JSON.parse(storedStudentData);
+
+  console.log(studentDataArray);
+} else {
+  console.log("No student data found in local storage.");
+}

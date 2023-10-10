@@ -1,91 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <title>Student Management System</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Document</title>
 </head>
-<body>
 
-<div class="navbar" id="navbar">
-    <div class="navbar-left">
-        <span class="navbar-brand">Orange Coding Academy</span>
-    </div>
-    <div class="navbar-right">
-        <a href="#" class="nav-item">Home</a>
-        <a href="#" class="nav-item">News</a>
-        <a href="#" class="nav-item">Contact</a>
-    </div>
-    <div class="navbar-toggler" id="navbarToggler">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
+<body style="background-color: blanchedalmond;">
+  <nav class="navbar">
+   
+    <div class="logo">SCHOLL SYSTEM</div>
+
+    <ul class="nav-links">
+
+     
+
+    
+      <div class="menu">
+
+        <li><a href="/">Home</a></li>
+        <li><a href="/">About</a></li>
+        <li><a href="/">Contact</a></li>
+      </div>
+    </ul>
+  </nav>
+  <h1>Student Information Form</h1>
+  <div class="cont">
+
+    <form class="student-form">
+      <label for="fullname">Full name:</label>
+      <input type="text" name="full_name" id="fullname" required value="name">
+  
+      <label for="date_of_birth">Date of birth:</label>
+      <input type="date" name="date_of_birth" id="date_of_birth" value="date" required>
+  
+      <label for="gender">Gender:</label>
+      <select name="gender" id="gender" required>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+  
+      <label for="phone_number" >Phone number:</label>
+      <input type="tel" name="phone_number" id="phone_number" value="number" required>
+  
+      <label for="grade">Grade:</label>
+      <input type="number" name="grade" id="grade" value="grade" required>
+  
+      <button class="submit"  id="sub">Submit</button>
+    </form>
+
+
+
+    <div>
+    <table id="student-table">
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Date of Birth</th>
+                <th>Gender</th>
+                <th>Phone Number</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody id="tables">
+        </tbody>
+    </table>
+    <button id="generatecards">Generate Cards</button>
     </div>
 </div>
-
-<div class="form-container">
-    <div class="form">
-        <div class="form-container">
-            <h2>Add Student</h2>
-            <form id="studentForm">
-                <div class="form-group">
-                    <label for="fullName"><i class="fas fa-user"></i> Full Name:</label>
-                    <input type="text" id="fullName" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="dob"><i class="fas fa-calendar"></i> Date of Birth:</label>
-                    <input type="date" id="dob" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="gender"><i class="fas fa-venus-mars"></i> Gender:</label>
-                    <select id="gender" required>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="phoneNumber"><i class="fas fa-phone"></i> Phone Number:</label>
-                    <input type="tel" id="phoneNumber" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="grade"><i class="fas fa-graduation-cap"></i> Grade:</label>
-                    <input type="text" id="grade" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="imageUrl"><i class="fas fa-image"></i> Image URL:</label>
-                    <input type="url" id="imageUrl" required>
-                </div>
-                <button type="submit">Add Student</button>
-            </form>
-        </div>
-    </div>
-</div>
-
-<main id="mainContainer" class="main-container">
-</main>
-
-<footer>
-    <div class="footer-container">
-        <div class="footer-social">
-            <a href="https://www.facebook.com/melad.abolail.3"><i class="fab fa-facebook"></i></a>
-            <a href="https://github.com/MeladAbulail"><i class="fab fa-github"></i></a>
-            <a href="https://wa.me/+962776877452"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://www.instagram.com/its_abulail/"><i class="fab fa-instagram"></i></a>
-        </div>
-        <div class="footer-contact">
-            <p><i class="fas fa-phone"></i> Phone: +962776877452</p>
-            <p><i class="fas fa-map-marker-alt"></i> Location: Jordan, Zarqa, xyz</p>
-        </div>
-    </div>
-</footer>
-
-<script src="apps.js"></script>
+<script src="app.js"></script>
 </body>
+
 </html>
